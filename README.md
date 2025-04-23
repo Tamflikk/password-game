@@ -1,7 +1,5 @@
 # The Password Game - Angular 12
 
-![Password Game Logo](https://placehold.co/600x200?text=Password+Game)
-
 ## Descripción
 
 **The Password Game** es un juego interactivo donde debes crear una contraseña que cumpla con una serie de reglas cada vez más desafiantes. Con cada regla cumplida, aparecerá una nueva más compleja, convirtiendo la experiencia en un reto divertido y adictivo.
@@ -13,12 +11,6 @@
 - Sistema progresivo de desafíos
 - 12 niveles de dificultad creciente
 - Animaciones y efectos visuales para una mejor experiencia de usuario
-
-## Capturas de pantalla
-
-![Pantalla de Inicio](https://placehold.co/600x400?text=Pantalla+de+Inicio)
-![Juego en Progreso](https://placehold.co/600x400?text=Juego+en+Progreso)
-![Pantalla de Victoria](https://placehold.co/600x400?text=Pantalla+de+Victoria)
 
 ## Reglas del juego
 
