@@ -33,14 +33,14 @@ El juego presenta reglas progresivas para tu contraseña:
 
 ### Prerrequisitos
 
-- Node.js (v14.x o v16.x recomendado)
-- Angular CLI v12.x
+- Node.js (v14 o v16)
+- Angular CLI v12
 
 ### Pasos para instalar
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/password-game.git
+   git clone https://github.com/Tamflikk/password-game.git
    cd password-game
    ```
 
@@ -74,4 +74,4 @@ El resultado se generará en el directorio `dist/`.
 
 ## Autor
 
-Alejandro Tamayo Hornsby - [Tamflikk](https://github.com/tamflikk)
+Alejandro Tamayo Hornsby - [Tamflikk](https://github.com/Tamflikk)
