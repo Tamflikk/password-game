@@ -1,0 +1,12 @@
+<div class="rules-container">
+  <h2>Reglas actuales</h2>
+  <mat-card *ngFor="let rule of getSortedRules()" [ngClass]="{'fulfilled': rule.isFulfilled}">
+    <mat-card-content>
+      <div class="rule-content">
+        <mat-icon *ngIf="rule.isFulfilled" color="primary">check_circle</mat-icon>
+        <mat-icon *ngIf="!rule.isFulfilled" color="warn">error</mat-icon>
+        <span>{{ rule.description }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

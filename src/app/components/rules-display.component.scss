@@ -1,0 +1,24 @@
+.rules-container {
+    margin: 2rem 0;
+  }
+  
+  h2 {
+    color: #3f51b5;
+    margin-bottom: 1rem;
+  }
+  
+  mat-card {
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .rule-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .fulfilled {
+    background-color: #e6f7e6;
+    border-left: 4px solid #4caf50;
+  }

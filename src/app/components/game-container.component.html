@@ -1,0 +1,32 @@
+<div class="game-container">
+    <div *ngIf="!(gameStarted$ | async)" class="start-screen">
+      <h1 class="title">El Juego de la Contraseña</h1>
+      <p class="description">Crea una contraseña que cumpla con todas las reglas para ganar el juego.</p>
+      <button mat-raised-button color="primary" (click)="startGame()">Comenzar el Juego</button>
+    </div>
+  
+    <div *ngIf="(gameStarted$ | async) && !(gameCompleted$ | async)" class="game-screen">
+      <h1 class="title">El Juego de la Contraseña</h1>
+      
+      <app-game-progress 
+        [currentLevel]="(currentLevel$ | async) || 1" 
+        [totalLevels]="12">
+      </app-game-progress>
+      
+      <app-password-input 
+        [password]="password" 
+        (passwordChange)="updatePassword($event)">
+      </app-password-input>
+      
+      <app-rules-display 
+        [rules]="(activeRules$ | async) || []">
+      </app-rules-display>
+    </div>
+  
+    <div *ngIf="(gameCompleted$ | async)" class="completed-screen">
+      <h1 class="title">¡Felicidades!</h1>
+      <p class="description">Has completado todos los niveles del juego de la contraseña.</p>
+      <p class="password-display">Tu contraseña final: <strong>{{ password }}</strong></p>
+      <button mat-raised-button color="primary" (click)="resetGame()">Jugar de Nuevo</button>
+    </div>
+  </div>
