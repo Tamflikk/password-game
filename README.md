@@ -49,17 +49,12 @@ El juego presenta reglas progresivas para tu contraseña:
    npm install
    ```
 
-3. Si estás usando Node.js v17 o superior, puedes necesitar usar el flag legacy provider:
-   ```bash
-   export NODE_OPTIONS=--openssl-legacy-provider
-   ```
-
-4. Inicia el servidor de desarrollo:
+3. Inicia el servidor de desarrollo:
    ```bash
    ng serve
    ```
 
-5. Abre tu navegador en `http://localhost:4200/`
+4. Abre tu navegador en `http://localhost:4200/`
 
 ## Construcción para producción
 
@@ -77,42 +72,6 @@ El resultado se generará en el directorio `dist/`.
 - RxJS
 - TypeScript
 
-## Estructura del proyecto
-
-```
-src/
-├── app/
-│   ├── components/
-│   │   ├── game-container/
-│   │   ├── password-input/
-│   │   ├── rules-display/
-│   │   └── game-progress/
-│   ├── services/
-│   │   └── game.service.ts
-│   ├── app.component.ts
-│   └── app.module.ts
-├── assets/
-└── styles.scss
-```
-
-## Cómo contribuir
-
-1. Haz un fork del repositorio
-2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`)
-3. Realiza tus cambios
-4. Haz commit de tus cambios (`git commit -m 'Añade nueva característica'`)
-5. Haz push a la rama (`git push origin feature/nueva-caracteristica`)
-6. Abre un Pull Request
-
-## Licencia
-
-Este proyecto está licenciado bajo la licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
-
 ## Autor
 
-Tu Nombre - [Tu Perfil de GitHub](https://github.com/tu-usuario)
-
-## Agradecimientos
-
-- Inspirado en la versión original de "The Password Game"
-- Gracias a todos los colaboradores y probadores
+Tu Nombre - [Tamflikk](https://github.com/tamflikk)
