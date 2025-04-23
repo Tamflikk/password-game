@@ -275,7 +275,6 @@ export class GameService {
         this.currentLevel.next(nextRuleIndex + 1);
         this.updateActiveRules();
         
-        // Si la nueva regla ya se cumple, volver a verificar todo
         if (rules[nextRuleIndex].isFulfilled) {
           setTimeout(() => this.checkRules(), 10);
         }
