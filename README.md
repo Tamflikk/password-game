@@ -74,4 +74,4 @@ El resultado se generará en el directorio `dist/`.
 
 ## Autor
 
-Tu Nombre - [Tamflikk](https://github.com/tamflikk)
+Alejandro Tamayo Hornsby - [Tamflikk](https://github.com/tamflikk)
