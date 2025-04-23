@@ -239,42 +239,58 @@ export class GameService {
   }
 
   private checkRules(): void {
-    this.updateActiveRules();
-  }
-
-  private updateActiveRules(): void {
-    const rules = this.rules.getValue();
     const password = this.password.getValue();
-
-    rules.forEach((rule) => {
+    const rules = this.rules.getValue();
+    let allActiveFulfilled = true;
+    let updatedRules = false;
+  
+    // Check each rule
+    rules.forEach(rule => {
       if (rule.isActive) {
-        rule.isFulfilled = rule.validator(password);
+        const fulfilled = rule.validator(password);
+        if (rule.isFulfilled !== fulfilled) {
+          rule.isFulfilled = fulfilled;
+          updatedRules = true;
+        }
+        
+        if (!fulfilled) {
+          allActiveFulfilled = false;
+        }
       }
     });
-
-    this.rules.next([...rules]);
-
-    const activeRules = rules.filter((rule) => rule.isActive);
-    this.activeRules.next(activeRules);
-
-    const allActiveFulfilled = activeRules.every((rule) => rule.isFulfilled);
-
+  
+    if (updatedRules) {
+      this.rules.next([...rules]);
+    }
+  
+    // Si todas las reglas activas están cumplidas, activar la siguiente
     if (allActiveFulfilled && this.gameStarted.getValue()) {
-      const nextRuleIndex = rules.findIndex((r) => !r.isActive);
+      const nextRuleIndex = rules.findIndex(r => !r.isActive);
       if (nextRuleIndex !== -1) {
+        // Activar la siguiente regla
         rules[nextRuleIndex].isActive = true;
-        rules[nextRuleIndex].isFulfilled =
-          rules[nextRuleIndex].validator(password);
+        // Verificar inmediatamente si la nueva regla ya se cumple
+        rules[nextRuleIndex].isFulfilled = rules[nextRuleIndex].validator(password);
         this.rules.next([...rules]);
         this.currentLevel.next(nextRuleIndex + 1);
-
+        this.updateActiveRules();
+        
+        // Si la nueva regla ya se cumple, volver a verificar todo
         if (rules[nextRuleIndex].isFulfilled) {
-          setTimeout(() => this.updateActiveRules(), 0);
+          setTimeout(() => this.checkRules(), 10);
         }
       } else {
         this.gameCompleted.next(true);
       }
     }
+  
+    this.updateActiveRules();
+  }
+  
+  private updateActiveRules(): void {
+    const rules = this.rules.getValue();
+    const activeRules = rules.filter(rule => rule.isActive);
+    this.activeRules.next(activeRules);
   }
 
   resetGame(): void {
